@@ -6,7 +6,7 @@ class OutletController {
             return res.status(400).json({ success: false, message: 'address is required' });
         }
         OutletDAO.getByAddress(address).then(outlet => {
-            res.json(outlet);
+            res.json({ success: true, outlet });
         }).catch(e => {
             console.log(e);
             res.sendStatus(500);
